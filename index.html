@@ -1,0 +1,811 @@
+<!doctype html>
+<html amp lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="https://amp.dev/documentation/examples/components/amp-carousel/index.html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async src="https://cdn.ampproject.org/v0.js"> </script>
+
+    <!-- AMP Analytics -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    <!-- Amp Youtube video supporting CDN -->
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js">
+    </script>
+
+
+
+    <!-- hide and show in amp -->
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+
+    <!-- accordion hide and show in amp -->
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+
+    <!-- carousel -->
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js">
+    </script>
+
+    <!-- side bar -->
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    <!-- lightbox -->
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+    <style amp-custom>
+        amp-img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+
+        button {
+            background-color:
+                #ACAD5C;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+
+        }
+
+        .lightbox {
+            background: rgba(211, 211, 211, 0.8);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <!-- carousel css -->
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style>
+    <!-- carousel css -->
+    <noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+
+    <!-- amp custom style tag -->
+    <style amp-custom>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            background-color: aliceblue;
+            height: 200px;
+            padding-top: 20px;
+        }
+
+        h1 {
+            color: darkgoldenrod;
+        }
+
+        .left-box,
+        .right-box {
+            width: 50%;
+            float: left;
+            font-size: 15px;
+        }
+
+        .cta_click {
+            color: #ffffff;
+            background-color: red;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin: 25%;
+        }
+
+        /* .hidden012 { display: none; }  */
+    </style>
+
+
+
+
+</head>
+
+<body class="body">
+
+    <center>
+        <button class="btn0" on="tap:my-lightbox">
+            Show Image
+        </button>
+        <amp-lightbox id="my-lightbox" layout="nodisplay">
+            <div class="lightbox" on="tap:my-lightbox.close" tabindex="0">
+                <amp-img alt="Beautiful Flower"
+                    src="https://images.unsplash.com/photo-1659960098869-4dcaf83fa446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+                    width="300" height="300">
+                </amp-img>
+            </div>
+        </amp-lightbox>
+    </center>
+
+    <center>
+        <amp-youtube id="yt-player0" class="video1" width="480" height="270" data-videoid="Ft208ORSqiE">
+        </amp-youtube>
+    </center>
+
+
+    <!-- button 1 & 2 element -->
+    <div class="cta">
+        <a class="virtual-pageview-1 hidden012" href="javascript:void(0)" id="the-button">Button 1</a>
+    </div>
+    <div class="cta">
+        <a class="virtual-pageview-2 hidden012" href="javascript:void(0)" on="tap:sidebar1" id="the-button">Button2</a>
+    </div>
+
+
+
+    <amp-carousel width="400" height="300" layout="responsive" type="slides" autoplay delay="3000">
+        <amp-img src="https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-9.png" width="400" height="300"
+            layout="responsive">
+        </amp-img>
+
+        <amp-img src="https://media.geeksforgeeks.org/wp-content/uploads/20190918234528/colorize1.png" width="400"
+            height="300" layout="responsive">
+        </amp-img>
+
+        <amp-img src="https://media.geeksforgeeks.org/wp-content/uploads/20190918234815/colorize2.png" width="200"
+            height="100" layout="responsive">
+        </amp-img>
+    </amp-carousel>
+
+
+    <h1 id="hello">Hello AMP HTML World!</h1>
+    <div class="containetr">
+        <div class="left-box">
+            left-box content
+        </div>
+        <div class="right-box">
+            right-box content
+        </div>
+
+
+
+
+        <br><br>
+        <div class="cta">
+            <a on="tap:sidebar1" class="cta_click" id="the-button">sidebar menu </a>
+        </div>
+    </div>
+
+
+
+    <!-- side bar -->
+    <amp-sidebar id="sidebar1" layout="nodisplay" style="width:300px">
+        <amp-nested-menu layout="fill">
+            <ul>
+                <li>
+                    <h4 amp-nested-submenu-open>Open Sub-Menu</h4>
+                    <div amp-nested-submenu>
+                        <ul>
+                            <li>
+                                <h4 amp-nested-submenu-close>Go back</h4>
+                            </li>
+                            <li>
+                                <h4 amp-nested-submenu-open>Open Another Sub-Menu</h4>
+                                <div amp-nested-submenu>
+                                    <h4 amp-nested-submenu-close>Go back</h4>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Link1</a>
+                </li>
+                <li>
+                    <a href="#">Link2</a>
+                </li>
+                <li>
+                    <a href="#">Link3</a>
+                </li>
+                <li>
+                    <a href="#">Link4</a>
+                </li>
+                <li>
+                    <a href="#">Link5</a>
+                </li>
+            </ul>
+        </amp-nested-menu>
+    </amp-sidebar>
+
+    <br>
+    <!-- hide and show in amp -->
+    <div id="hidee">Hello World</div>
+    <button on="tap:hidee.toggleVisibility">Show greeting</button>
+
+
+    <br>
+    <!-- accordion in amp -->
+    <amp-accordion class="sample">
+        <section expanded>
+            <h4>Section 1</h4>
+            <p>Bunch of awesome content.</p>
+        </section>
+        <section>
+            <h4>Section 2</h4>
+            <div>Bunch of even more awesome content. This time in a <code><div></code>.</div>
+        </section>
+        <section>
+            <h4>Section 3</h4>
+            <figure>
+                <amp-img
+                    src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&w=440&h=220&q=60"
+                    width="450" height="300"></amp-img>
+                <figcaption>Images work as well.</figcaption>
+            </figure>
+        </section>
+    </amp-accordion>
+
+
+
+    <!-- Youtube video -->
+    <br> <br>
+    <center>
+        <amp-youtube id="yt-player1" class="video" width="480" height="270" data-videoid="Ft208ORSqiE">
+        </amp-youtube>
+    </center>
+    <br> <br>
+
+
+    <!-- amp-ad -->
+    <br> <br>
+    <div>
+        <amp-ad id="adrender" type="a9" data-amzn_assoc_ad_mode="auto"
+            data-divid="amzn-assoc-ad-fe746097-f142-4f8d-8dfb-45ec747632e5" data-recomtype="async"
+            data-adinstanceid="fe746097-f142-4f8d-8dfb-45ec747632e5" width="300" height="250" data-aax_size="300x250"
+            data-aax_pubname="test123" data-aax_src="302">
+        </amp-ad>
+
+        <!-- <amp-embed type="taboola" width="400" height="300" layout="responsive" data-publisher="amp-demo"
+            data-mode="thumbnails-a" data-placement="Ads Example" data-article="auto">
+        </amp-embed> -->
+
+    </div>
+
+
+    <!-- UA ID: UA-218433523-1 -->
+    <!-- GA4 MID: G-2Y1PP6JNH1 -->
+    <!-- Final Method -->
+
+
+    <!-- GA4 Pageview -->
+    <!-- <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include">
+    <script type="application/json">
+    {
+        "vars": {
+                    "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                    "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                    "DEFAULT_PAGEVIEW_ENABLED": true,    
+                    "GOOGLE_CONSENT_ENABLED": false,
+                    "WEBVITALS_TRACKING": false,
+                    "PERFORMANCE_TIMING_TRACKING": false,
+                    "SEND_DOUBLECLICK_BEACON": false
+        }
+    }
+    </script>
+</amp-analytics> -->
+
+
+
+
+    <!-- GA4 Pageviews with params -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+        {
+            "vars": {
+                        "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                        "DEFAULT_PAGEVIEW_ENABLED": true,    
+                        "GOOGLE_CONSENT_ENABLED": false,
+                        "WEBVITALS_TRACKING": false,
+                        "PERFORMANCE_TIMING_TRACKING": false,
+                        "SEND_DOUBLECLICK_BEACON": false
+            },
+            "extraUrlParams": {
+                "event__str_action": "pageview",
+                "event__str_url": "${ampdocUrl}",
+                "event__str_clientId": "CLIENT_ID(_ga)"
+            }     
+        }
+        </script>
+    </amp-analytics>
+
+
+
+    <!-- GA4 CTA click -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+{
+    "vars": {
+                "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                "DEFAULT_PAGEVIEW_ENABLED": false,    
+                "GOOGLE_CONSENT_ENABLED": false,
+                "WEBVITALS_TRACKING": false,
+                "PERFORMANCE_TIMING_TRACKING": false,
+                "SEND_DOUBLECLICK_BEACON": false
+    },
+    "triggers": {
+        "cta_tracking": {
+          "on": "click",
+          "selector": ".cta_click",
+          "request": "ga4Event",
+          "vars": {
+            "ga4_event_name": "Sidebar menu click"
+          },
+          "extraUrlParams": {
+               "event__str_eventAction": "button clicked",
+               "event__str_clientId": "CLIENT_ID(_ga)"
+          }       
+        }
+      }             
+}
+</script>
+    </amp-analytics>
+
+
+
+
+
+
+    <!--GA4 Scroll -->
+
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+{
+   "vars": {
+               "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+               "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+               "DEFAULT_PAGEVIEW_ENABLED": false,   
+               "GOOGLE_CONSENT_ENABLED": false,
+               "WEBVITALS_TRACKING": false,
+               "PERFORMANCE_TIMING_TRACKING": false,
+               "SEND_DOUBLECLICK_BEACON": false
+   },
+   "triggers": {
+       "scrollTracking": {
+           "on": "scroll",
+           "request": "ga4Event",
+           "vars": {
+               "ga4_event_name": "AMP Scroll Depth"
+           },
+           "extraUrlParams": {
+               "event__str_percent_scrolled": "${verticalScrollBoundary}% Scroll",
+               "event__str_clientId": "CLIENT_ID(_ga)"
+           },
+           "scrollSpec": {
+               "verticalBoundaries": [50, 100],
+               "horizontalBoundaries": [],
+               "useInitialPageSize": false
+           }
+       }
+    }
+}
+</script>
+    </amp-analytics>
+
+
+    <!-- GA4 Page loading Tracking -->
+
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+        {
+            "vars": {
+                        "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                        "DEFAULT_PAGEVIEW_ENABLED": false,    
+                        "GOOGLE_CONSENT_ENABLED": false,
+                        "WEBVITALS_TRACKING": false,
+                        "PERFORMANCE_TIMING_TRACKING": false,
+                        "SEND_DOUBLECLICK_BEACON": false
+            },
+            "triggers": {
+                "pageLoaded": {
+                   "on": "ini-load",
+                   "request": "ga4Event",
+                   "vars": {
+                       "ga4_event_name": "page_is_loaded"
+                    },
+                    "extraUrlParams": {
+                         "event__str_clientId": "CLIENT_ID(_ga)",   
+                         "event__str_page_load_time": "PAGE_LOAD_TIME"
+                 }
+                 }  
+               }      
+        }
+        </script>
+    </amp-analytics>
+
+
+
+    <!-- GA4 Page Hidden Tracking -->
+
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                        },
+                        "triggers": {
+                            "pageHidden": {
+                                "on": "hidden",
+                                "request": "ga4Event",
+                                "vars": {
+                                    "ga4_event_name": "page_is_hidden"
+                                    },
+                                "extraUrlParams": 
+                                {
+                                "event__str_clientId": "CLIENT_ID(_ga)"   
+                                }
+                            },
+                        "visibilitySpec": {
+                            "selector": "body",
+                            "visiblePercentageMin": 20,
+                            "totalTimeMin": 3000
+                            }           
+                        }
+            }
+        </script>
+    </amp-analytics>
+
+
+
+    <!-- GA4 Youtube Video Tracking -->
+
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                },
+                "triggers": {
+                    "videoPlayEvent": {
+                        "on": "video-play",
+                        "request": "ga4Event",
+                        "vars": {
+                            "ga4_event_name": "video_played"
+                        },
+                        "selector": "#yt-player0",
+                        "videoSpec": {},
+                        "extraUrlParams": {
+                            "event__str_clientId": "CLIENT_ID(_ga)", 
+                            "event__num_video_autoplay": "${autoplay}",
+                            "event__num_video_currentTime": "${currentTime}",
+                            "event__num_video_duration": "${duration}",
+                            "event__num_video_height": "${height}",
+                            "event__str_video_id": "${id}",
+                            "event__num_video_playedTotal": "${playedTotal}",
+                            "event__str_video_state": "${state}",
+                            "event__num_video_width": "${width}"
+                        }
+                    },
+                    "videoPauseEvent": {
+                        "on": "video-pause",
+                        "request": "ga4Event",
+                        "vars": {
+                            "ga4_event_name": "video_paused"
+                        },
+                        "selector": "#yt-player0",
+                        "videoSpec": {},
+                        "extraUrlParams": {
+                            "event__str_clientId": "CLIENT_ID(_ga)",
+                            "event__str_video_title": "${id}",
+                            "event__num_video_video_pause_time": "${currentTime}"  
+                        }
+                    },
+                    "videoEndEvent": {
+                        "on": "video-ended",
+                        "request": "ga4Event",
+                        "vars": {
+                            "ga4_event_name": "video_ended"
+                        },
+                        "selector": "#yt-player0",
+                        "videoSpec": {},
+                        "extraUrlParams": {
+                            "event__str_clientId": "CLIENT_ID(_ga)",
+                            "event__str_video_title": "${id}",
+                            "event__num_video_video_end_time": "${currentTime}"                           
+                        }
+                    }
+                    
+                }
+            }
+        </script>
+    </amp-analytics>
+
+    <!-- ,
+    "visibilityspec": {
+        "waitFor": "ini-load",
+        "visiblePercentageMin": 100,
+        "totalTimeMin": 500,
+        "continuousTimeMin": 200
+    } -->
+
+
+    <!-- GA4 Element Visibilty -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                },
+                "triggers": {
+                    "recomendationsViewed": {
+                        "on": "visible",
+                        "request": "ga4Event",
+                        "vars": {
+                            "ga4_event_name": "Visibility tracking"
+                        },
+                        "extraUrlParams": 
+                            {
+                                "event__str_clientId": "CLIENT_ID(_ga)"   
+                            },
+                        "selector": "#my-lightbox",
+                        "visibilitySpec": {
+                            "waitFor": "ini-load",
+                            "visiblePercentageMin": 50,
+                            "totalTimeMin": 500,
+                            "continuousTimeMin": 200
+                        }
+                    }
+                  
+                } 
+            }
+        </script>
+    </amp-analytics>
+
+    <!-- ADs Loading tracking GA4 -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                },
+                "triggers": 
+                {
+                    "renderstart": 
+                    {
+                      "on": "render-start",
+                      "request": "ga4Event",
+                      "selector": "#adrender",
+                      "vars": 
+                      {
+                        "ga4_event_name": "ads_loaded"
+                      }
+                    }
+                },
+                "extraUrlParams": {
+                    "event__str_action": "ads-Rendering Method",
+                    "event__str_ampClientId": "CLIENT_ID(_ga)"
+                    
+                }
+            }      
+        </script>
+    </amp-analytics>
+
+
+
+    <!-- GA4 Timer Tracking -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                },
+                "triggers": 
+                {  
+                    "pageTimer": 
+                    {    
+                        "on": "timer",    
+                        "timerSpec": 
+                        {      
+                            "interval": 15,      
+                            "maxTimerLength": 600    
+                        },    
+                            "request": "ga4Event",  
+                            "vars": 
+                            {      
+                                "ga4_event_name": "pagetime"
+                                
+                            },
+                            "extraUrlParams": { 
+                                "event__str_engagetime": "Engaged ${totalEngagedTime}",
+                                "event__str_location": "${ampdocUrl}",
+                                "event__str_clientId": "CLIENT_ID(_ga)" 
+                            }  
+                    }
+        }
+    }
+</script>
+    </amp-analytics>
+
+
+
+    <!-- VPV Separate for Button 1 GA4 -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+        {
+            "vars": {
+                        "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                        "DEFAULT_PAGEVIEW_ENABLED": false,   
+                        "GOOGLE_CONSENT_ENABLED": false,
+                        "WEBVITALS_TRACKING": false,
+                        "PERFORMANCE_TIMING_TRACKING": false,
+                        "SEND_DOUBLECLICK_BEACON": false
+            },
+            "triggers": {
+                "virtualPageview1": {
+                    "selector": ".virtual-pageview-1",
+                    "on": "click",
+                    "request": "ga4Event",
+                    "vars": {
+                        "ga4_event_name": "${ampdocUrl}/vpv/btn1"
+                    },
+                    "extraUrlParams": {
+                        "event__str_title":"${title}",
+                        "event__str_pageLocation": "${ampdocUrl}/vpv/btn1",
+                        "event__str_host":"AMPDOC_HOST"
+                    }
+                }
+            }
+        }
+    </script>
+    </amp-analytics>
+
+    <!-- ADs Loading tracking -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+           {
+               "vars": {
+                           "GA4_MEASUREMENT_ID": "G-2Y1PP6JNH1",
+                           "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                           "DEFAULT_PAGEVIEW_ENABLED": false,   
+                           "GOOGLE_CONSENT_ENABLED": false,
+                           "WEBVITALS_TRACKING": false,
+                           "PERFORMANCE_TIMING_TRACKING": false,
+                           "SEND_DOUBLECLICK_BEACON": false
+               },
+               "triggers": 
+               {
+                   "renderstart": 
+                   {
+                     "on": "render-start",
+                     "request": "ga4Event",
+                     "selector": "#adrender",
+                     "vars": 
+                     {
+                       "ga4_event_name": "ads_loaded"
+                     }
+                   }
+               },
+               "extraUrlParams": {
+                   "event__str_action": "ads-Rendering Method",
+                   "event__str_ampClientId": "CLIENT_ID(_ga)",
+                   
+                   
+               }
+           }      
+       </script>
+    </amp-analytics>
+
+
+</body>
+
+</html>
